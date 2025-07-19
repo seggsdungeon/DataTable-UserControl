@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TableModuleTestApplication (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "TableModuleTestApplication (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

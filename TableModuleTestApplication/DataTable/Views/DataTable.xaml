@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="TableModuleTestApplication.DataTable.Views.DataTable"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TableModuleTestApplication.DataTable.Views"
+    xmlns:models="using:TableModuleTestApplication.DataTable.Models"
+    xmlns:templates="using:TableModuleTestApplication.DataTable.Templates"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <StackPanel Orientation="Horizontal">
+            <ItemsRepeater x:Name="ColumnRepeater">
+                <ItemsRepeater.ItemTemplate>
+                    <DataTemplate x:DataType="models:TableColumn">
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind Header}" FontWeight="Bold" Margin="2" />
+
+                            <ItemsRepeater ItemsSource="{x:Bind Values}">
+                                <ItemsRepeater.ItemTemplate>
+                                    <DataTemplate>
+                                        <ContentControl Content="{x:Bind}">
+                                            <ContentControl.ContentTemplateSelector>
+                                                <templates:CellTemplateSelector
+                                                ColumnType="{x:Bind Type}"
+                                                TextBoxTemplate="{StaticResource TextCellTemplate}" />
+                                            </ContentControl.ContentTemplateSelector>
+                                        </ContentControl>
+                                    </DataTemplate>
+                                </ItemsRepeater.ItemTemplate>
+                            </ItemsRepeater>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsRepeater.ItemTemplate>
+
+            </ItemsRepeater>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
