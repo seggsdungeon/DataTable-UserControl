@@ -14,6 +14,7 @@ I had no clue that stuff like DataTemplates and ItemRepeater exist. Glad to have
 So in the starting phase of my project, i thought about what my DataTable is supposed to accomplish. So i thought about a minimal version and a fully spected out version:
 
 |Minimal|Full|
+|-------|-----|
 |Variable Row count|Variable Row and Column Count|
 |All cells textboxes|Columns can have diffrent Inputmethods based on Inputtype|
 |everything auto sizes|The Rows/Columns are customizable|
