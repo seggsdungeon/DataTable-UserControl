@@ -11,11 +11,24 @@ namespace TableModuleTestApplication.DataTable.Templates
         public ColumnType ColumnType { get; set; }
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
         {
-            return ColumnType switch
+            if (item is TableColumn col)
             {
-                ColumnType.TextBox => TextBoxTemplate,
-                _ => TextBoxTemplate // default for now
-            };
+
+                switch (col.Type)
+                {
+                    case ColumnType.TextBox:
+                        return TextBoxTemplate;
+                    case ColumnType.CheckBox:
+                        return null; // Return CheckBox template here
+                    case ColumnType.ComboBox:
+                        return null; // Return CheckBox template here
+                    default: return TextBoxTemplate;
+                }
+            }
+            else
+            {
+                return base.SelectTemplateCore(item, container);
+            }
         }
     }
 }

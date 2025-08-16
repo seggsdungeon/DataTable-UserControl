@@ -21,13 +21,7 @@
                             <ItemsRepeater ItemsSource="{x:Bind Values}">
                                 <ItemsRepeater.ItemTemplate>
                                     <DataTemplate>
-                                        <ContentControl Content="{x:Bind}">
-                                            <ContentControl.ContentTemplateSelector>
-                                                <templates:CellTemplateSelector
-                                                ColumnType="{x:Bind Type}"
-                                                TextBoxTemplate="{StaticResource TextCellTemplate}" />
-                                            </ContentControl.ContentTemplateSelector>
-                                        </ContentControl>
+                                        <ContentControl Content="{x:Bind}" ContentTemplateSelector="{StaticResource CellTemplateSelector}" />
                                     </DataTemplate>
                                 </ItemsRepeater.ItemTemplate>
                             </ItemsRepeater>
